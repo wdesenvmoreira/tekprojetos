@@ -1,0 +1,125 @@
+<%- include('../../partials/head')  %>
+    <%- include('../../partials/header')  %>
+
+        <main role="main" class="">
+            <div class="container">
+
+                <form action='/modulos/localizar' method="GET">
+                    <div class="form-group row">
+                        <!-- <label for="editLocalizarProjeto" class="col-sm-2 col-form-label">localizar Projeto:</label> -->
+                        <div class="col-sm">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formIncluirModal">
+                                Incluir 
+                            </button>
+                            <input type="text" class="form-control" id="editLocalizarModulos" name="editLocalizarModulos">
+                            <button type="submit" class="btn btn-primary ">Localizar</button>
+                            <!-- Button trigger modal -->
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <div class="row">
+                    <div class="col-sm-3"><button>|</button></div>
+                    <div class="col-sm-3"><button>|</button></div>
+                    <div class="col-sm-3"><button>|</button></div>
+                    <div class="col-sm-3"><button>|</button></div>
+                </div>
+                <!-- Modal Incluir Módulos-->
+
+                <div class="modal fade " id="formIncluirModal" tabindex="-1" role="dialog" aria-labelledby="formIncluirModalLabel" aria-hidden="true">
+
+                    <div class="modal-dialog" role="document">
+                        <form action="/modulos/novo" method="POST" class="needs-validation">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Módulo</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+
+
+                                        <div class="form-group row">
+                                            <label for="editCodigo_Projeto" class="col-sm-2 col-form-label ">Módulo</label>
+                                            <div class="col-sm-10 ">
+                                                <input type="text" class="form-control" id="editModulo" name="editModulo" placeholder="Módulos">
+                                                <% if(retorno.msg){%>
+                                                    <div class="text-danger">
+                                                        Tudo certo!
+                                                    </div>
+                                                    <% } %>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <!-- Button trigger modal  Edição de Módulos-->
+
+
+                <!-- Modal -->
+                <form action="/modelo/alterar" method="POST" id="formEditar">
+                    <div class="modal fade" id="formEditarModal" tabindex="-1" role="dialog" aria-labelledby="formEditarModal" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Editar Módulos</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div>
+
+
+                                        <div class="form-group row">
+                                            <label for="editarId" class="col-sm-2 col-form-label ">ID Módulo</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control edits" id="editarIdModulo" name="editarIdModulo" placeholder="ID Módulo">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="editarModulo" class="col-sm-2 col-form-label">Módulo</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control edits" id="editarModulo" name="editarModulo" placeholder="Módulo">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="modal fade bd-example-modal-sm" id="msgErro" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content" id="modalMsg">
+                        <%- retorno.msg %>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <%- include('../../partials/footer.ejs')  %>

@@ -1,0 +1,207 @@
+<%- include('../../partials/head')  %>
+    <%- include('../../partials/header')  %>
+
+        <main role="main" class="">
+            <div class="container">
+
+                <form action='/projetos/localizar' method="GET">
+                    <div class="form-group row">
+                        <!-- <label for="editLocalizarProjeto" class="col-sm-2 col-form-label">localizar Projeto:</label> -->
+                        <div class="col-sm">
+                            <input type="text" class="form-control" id="editLocalizarProjeto" name="editLocalizarProjeto">
+                            <button type="submit" class="btn btn-primary ">Localizar</button>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formIncluirModal">
+                                Incluir 
+                            </button>
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            ...
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Incluir Projeto-->
+
+                <div class="modal fade " id="formIncluirModal" tabindex="-1" role="dialog" aria-labelledby="formIncluirModalLabel" aria-hidden="true">
+
+                    <div class="modal-dialog" role="document">
+                        <form action="/projetos/novo" method="POST" class="needs-validation">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Incluir Projeto</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+
+
+                                        <div class="form-group row">
+                                            <label for="editCodigo_Projeto" class="col-sm-2 col-form-label ">Código Projeto</label>
+                                            <div class="col-sm-10 ">
+                                                <input type="text" class="form-control" id="editCodigo_Projeto" name="editCodigo_Projeto" placeholder="Código Projeto">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editEmpresa" class="col-sm-2 col-form-label">Razão Social Empresa</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="editEmpresa" name="editEmpresa" placeholder="Razão Social">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editDescricao" class="col-sm-2 col-form-label">Descrição do Projeto</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="editDescricao" name="editDescricao" placeholder="Descrição Projeto">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editDescricao_Completa" class="col-sm-2 col-form-label">Descrição Completa</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="editDescricao_Completa" name="editDescricao_Completa" placeholder="Descrição Completa Projeto">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editInicio" class="col-sm-2 col-form-label">Data Ínicio</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="editInicio" name="editInicio" placeholder="Data Ínicio">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editFim" class="col-sm-2 col-form-label">Data Termino</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="editFim" name="editFim" placeholder="Data Término">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editGerente" class="col-sm-2 col-form-label">Gerente</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="editGerente" name="editGerente" placeholder=" Gerente ">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editResponsavel" class="col-sm-2 col-form-label">Responsável</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="editResponsavel" name="editResponsavel" placeholder=" Responsável">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <!-- Button trigger modal  Edição de Projetos-->
+
+
+                <!-- Modal -->
+                <form action="/projetos/alterar" method="POST" id="formEditar">
+                    <div class="modal fade" id="formEditarModal" tabindex="-1" role="dialog" aria-labelledby="formEditarModal" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Editar Projeto</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div>
+
+
+                                        <div class="form-group row">
+                                            <label for="editarId" class="col-sm-2 col-form-label ">ID Projeto</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control edits" id="editarId" name="editarId" placeholder="ID Projeto">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="editarCodigo_Projeto" class="col-sm-2 col-form-label">Código Projeto</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control edits" id="editarCodigo_Projeto" name="editarCodigo_Projeto" placeholder="Código Projeto">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editarEmpresa" class="col-sm-2 col-form-label">Razão Social Empresa</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control edits" id="editarEmpresa" name="editarEmpresa" placeholder="Razão Social">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editarDescricao" class="col-sm-2 col-form-label">Descrição do Projeto</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control edits" id="editarDescricao" name="editarDescricao" placeholder="Descrição Projeto">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editarDescricao_Completa" class="col-sm-2 col-form-label">Descrição Completa</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control edits" id="editarDescricao_Completa" name="editarDescricao_Completa" placeholder="Descrição Completa Projeto">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editarInicio" class="col-sm-2 col-form-label">Data Ínicio</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control edits" id="editarInicio" name="editarInicio" placeholder="Data Ínicio">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editarFim" class="col-sm-2 col-form-label">Data Termino</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control edits" id="editarFim" name="editarFim" placeholder="Data Término">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editarGerente" class="col-sm-2 col-form-label">Gerente</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control edits" id="editarGerente" name="editarGerente" placeholder=" Gerente ">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="editarResponsavel" class="col-sm-2 col-form-label">Responsável</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control edits" id="editarResponsavel" name="editarResponsavel" placeholder=" Responsável">
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal fade bd-example-modal-sm" id="msgErro" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content" id='modalMsg'>
+                        <%- retorno.msg %>
+                            <%- retorno.log %>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <%- include('../../partials/footer.ejs')  %>
